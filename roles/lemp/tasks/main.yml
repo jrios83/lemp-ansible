@@ -1,0 +1,11 @@
+---
+# tasks file for roles/lemp
+- import_tasks: 1.addepel.yml
+- import_tasks: 2.addremi.yml
+- import_tasks: 3.nginx.yml
+- import_tasks: 4.mariadb.yml
+- import_tasks: 5.php.yml
+- import_tasks: 6.setwwwconf.yml
+- import_tasks: 7.copy_conf.yml
+- import_tasks: 8.testing.yml
+#- import_tasks: 9.deletephpinfo.yml

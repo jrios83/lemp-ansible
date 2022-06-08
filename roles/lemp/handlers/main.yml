@@ -1,0 +1,11 @@
+---
+# handlers file for roles/lemp
+- name: restart php fpm
+  service:
+    name: php-fpm
+    state: restarted  
+
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted

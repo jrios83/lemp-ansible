@@ -1,0 +1,5 @@
+---
+- name: Copy default.conf
+  copy: src=./files/default.conf dest=/etc/nginx/conf.d/
+  notify:
+  - restart php fpm

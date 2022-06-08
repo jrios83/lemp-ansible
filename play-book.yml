@@ -1,0 +1,6 @@
+---
+- hosts: lemp
+  become: true
+  become_user: root
+  roles:
+    - lemp

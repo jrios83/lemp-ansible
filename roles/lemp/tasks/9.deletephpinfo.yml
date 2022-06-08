@@ -1,0 +1,5 @@
+---
+- name: Remove php.info
+  ansible.builtin.file:
+    path: /usr/share/nginx/html/php.info
+    state: absent

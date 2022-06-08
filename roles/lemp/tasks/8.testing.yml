@@ -1,0 +1,13 @@
+---
+- name: Change file ownership, group and permissions
+  ansible.builtin.file:
+    path: /usr/share/nginx/html/
+    recurse: yes
+    owner: centos
+    group: centos
+    mode: '0755'
+
+- name: Copy info.php
+  copy: src=./files/info.php dest=/usr/share/nginx/html/
+  notify:
+  - restart nginx

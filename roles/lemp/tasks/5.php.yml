@@ -1,0 +1,6 @@
+---
+  - name: install php
+    yum: enablerepo=remi,remi-php74 name=php-mysqlnd,php,php-fpm state=latest
+  
+  - name: install nano
+    yum: name=nano state=present

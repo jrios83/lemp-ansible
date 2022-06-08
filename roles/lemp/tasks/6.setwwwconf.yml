@@ -1,0 +1,39 @@
+---
+  - name: Set user and group file
+    replace:
+      path: /etc/php-fpm.d/www.conf
+      regexp: "apache"
+      replace: "nginx"
+      backup: yes
+  
+  - name: Set listen section
+    replace:
+      path: /etc/php-fpm.d/www.conf
+      regexp: "127.0.0.1:9000"
+      replace: "/var/run/php-fpm/php-fpm.sock;"
+  
+  - name: Set listen owner
+    replace:
+      path: /etc/php-fpm.d/www.conf
+      regexp: ";listen.owner = nobody"
+      replace: "listen.owner = nginx"
+  
+  - name: Set listen group
+    replace:
+      path: /etc/php-fpm.d/www.conf
+      regexp: ";listen.group = nobody"
+      replace: "listen.group = nginx"
+  
+  - name: Set listen mode
+    replace:
+      path: /etc/php-fpm.d/www.conf
+      regexp: ";listen.mode = 0660"
+      replace: "listen.mode = 0660"
+#    notify:
+#    - restart php fpm  
+
+  - name: restart php fpm
+    service:
+      name: php-fpm
+      state: restarted
+  
